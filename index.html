@@ -1,5 +1,8 @@
 <!doctype html>
 <html>
+<head>
+<meta charset="utf-8">
+</head>
   <body>
 	<div id='g_prog'></div><br>
 	<div id='Fibonacci'></div><br>
@@ -7,47 +10,57 @@
   </body>
   <script>
 	
-	var N=10;
-	var B=new Array(N);
-	var Q=2;
-	B[0]=5;
-	
-	for(var i=1; i<N; i++){
-	  B[i]=B[i-1]*Q;
-	}
-	
-	document.getElementById("g_prog").innerHTML='Геометрическая прогрессия для N = '+N+' элементов и q = '+Q+' : '+B; 
-	
-	var N=10;
-
-	var f=new Array(N);
-
-	f[0]=0;
-	f[1]=f[0]+1;
-
-	for(var i=2; i<N; i++){
-		f[i]=f[i-1]+f[i-2];
-	}
-	
-	document.getElementById("Fibonacci").innerHTML='Ряд Фибоначчи для '+N+' элементов: '+f; 
-	
-	
-	var bubble=new Array(5, 7, 4, 1, 3);
-	var bubble_l=bubble.length;
-
-
-	for(var j=0; j<bubble_l; j++){
-	for(var i=bubble_l-1; i>=0; i--){
-		if(bubble[i]<bubble[i-1]){
-		  var a=bubble[i];
-		  var b=bubble[i-1];
-		  bubble[i]=b;
-		  bubble[i-1]=a;
-		}
-	  }
-	}
-	
-	document.getElementById("quick").innerHTML='Отсортированный пузырьковым методом массив из '+bubble_l+' элементов: '+bubble; 
+	function geom_progression() {
+		var N=10;
+		var B=new Array(N);
+		var Q=2;
+		B[0]=5;
 		
+		for(var i=1; i<N; i++){
+		  B[i]=B[i-1]*Q;
+		}
+		
+		document.getElementById("g_prog").innerHTML='Геометрическая прогрессия для N = '+N+' элементов и q = '+Q+' : '+B; 
+	}
+	
+	
+	function Fibonacci() {
+		var N=10;
+		var f=new Array(N);
+
+		f[0]=0;
+		f[1]=f[0]+1;
+
+		for(var i=2; i<N; i++){
+			f[i]=f[i-1]+f[i-2];
+		}
+		
+		document.getElementById("Fibonacci").innerHTML='Ряд Фибоначчи для '+N+' элементов: '+f; 
+	}
+	
+	
+	function bubble() {
+		var bubble=new Array(5, 7, 4, 1, 3);
+		var bubble_l=bubble.length;
+
+
+		for(var j=0; j<bubble_l; j++){
+		for(var i=bubble_l-1; i>=0; i--){
+			if(bubble[i]<bubble[i-1]){
+			  var a=bubble[i];
+			  var b=bubble[i-1];
+			  bubble[i]=b;
+			  bubble[i-1]=a;
+			}
+		  }
+		}
+		
+		document.getElementById("quick").innerHTML='Отсортированный пузырьковым методом массив из '+bubble_l+' элементов: '+bubble; 
+	}	
+	
+	geom_progression();
+	Fibonacci();
+	bubble();
+	
   </script>
 </html>
